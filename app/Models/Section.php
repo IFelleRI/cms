@@ -10,4 +10,8 @@ class Section extends Model
     use HasFactory;
     protected $table = 'section';
 
+    public function publication()
+    {
+        return $this->hasOne(Publication::class);
+    }
 }
