@@ -12,7 +12,7 @@ class TableCreate extends Command
      *
      * @var string
      */
-    protected $signature = 'app:create {table}';
+    protected $signature = 'app:create';
 
     /**
      * The console command description.
@@ -27,10 +27,13 @@ class TableCreate extends Command
     public function handle()
     {
         //$this->argument('table')
-
-        $table = DB::table($this->argument('table'))->get();
-        echo'<pre>';
-        print_r($table);
-        echo'</pre>';
+        $caption = $this->ask('Caption');
+        $url = $this->ask('Url');
+        DB::table('section')->insert([
+           'parent_id' => '0',
+           'caption' => $caption,
+           'url' => $url
+        ]);
+        $this->info("Created.");
     }
 }
