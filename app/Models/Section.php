@@ -14,4 +14,9 @@ class Section extends Model
     {
         return $this->hasOne(Publication::class);
     }
+
+    public function field()
+    {
+        return $this->hasMany(Field::class, 'parent_id');
+    }
 }

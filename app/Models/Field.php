@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Field extends Model
 {
     use HasFactory;
+
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
+    }
 }

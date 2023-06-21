@@ -10,5 +10,8 @@ class Publication extends Model
     use HasFactory;
     protected $table = 'publications';
 
-
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
+    }
 }
