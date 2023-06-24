@@ -9,10 +9,15 @@ class Section extends Model
 {
     use HasFactory;
     protected $table = 'section';
-
+    protected $fillable = [
+        'parent_id',
+        'caption',
+        'url',
+        'body'
+    ];
     public function publication()
     {
-        return $this->hasOne(Publication::class);
+        return $this->hasMany(Publication::class);
     }
 
     public function field()

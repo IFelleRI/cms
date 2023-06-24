@@ -12,4 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public $fillable = [
+        'name',
+        'email',
+        'password','
+        role'
+    ];
 }
