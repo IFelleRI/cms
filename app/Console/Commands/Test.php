@@ -3,9 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\Section;
-use App\Models\File;
-use App\Models\Publication;
+use Illuminate\Support\Facades\DB;
 class Test extends Command
 {
     /**
@@ -13,7 +11,7 @@ class Test extends Command
      *
      * @var string
      */
-    protected $signature = 'app:test';
+    protected $signature = 'app:test {t}';
 
     /**
      * The console command description.
@@ -27,9 +25,31 @@ class Test extends Command
      */
     public function handle()
     {
-        $pub = Publication::find(1)->section;
-        echo'<pre>';
-        print_r($pub);
-        echo'</pre>';
+        if($this->argument('t') == 'delete'){
+            $idV = $this->ask('delete ID table');
+            DB::table('section')
+              ->where('id','=',$idV)
+              ->delete();
+            $this->info('Deleted');
+        }
+
+        if($this->argument('t') == 'update'){
+            $idV = $this->ask('update ID table');
+            $col = $this->ask('Name column');
+            $colVal = $this->ask('Column value');
+            DB::table('section')
+              ->where('id','=',$idV)
+              ->update([$col=>$colVal]);
+            $this->info('Saved');
+        }
+
+        if($this->argument('t') == 'create'){
+            DB::table('section')->insert([
+               'body'=>'created_body',
+               'caption'=>'caption_id'
+            ]);
+            $this->info('Created');
+        }
+
     }
 }

@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     use HasFactory;
-    protected $table = 'section';
     protected $fillable = [
         'parent_id',
         'caption',
@@ -20,8 +19,4 @@ class Section extends Model
         return $this->hasMany(Publication::class);
     }
 
-    public function field()
-    {
-        return $this->hasMany(Field::class, 'parent_id');
-    }
 }

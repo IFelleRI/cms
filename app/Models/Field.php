@@ -16,8 +16,5 @@ class Field extends Model
         'body_value',
         'sort_index'
     ];
-    public function section()
-    {
-        return $this->belongsTo(Section::class);
-    }
+
 }
