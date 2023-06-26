@@ -27,7 +27,7 @@ class Test extends Command
     {
         if($this->argument('t') == 'delete'){
             $idV = $this->ask('delete ID table');
-            DB::table('section')
+            DB::table('sections')
               ->where('id','=',$idV)
               ->delete();
             $this->info('Deleted');
@@ -37,15 +37,17 @@ class Test extends Command
             $idV = $this->ask('update ID table');
             $col = $this->ask('Name column');
             $colVal = $this->ask('Column value');
-            DB::table('section')
+            DB::table('sections')
               ->where('id','=',$idV)
               ->update([$col=>$colVal]);
             $this->info('Saved');
         }
 
         if($this->argument('t') == 'create'){
-            DB::table('section')->insert([
+            DB::table('sections')->insert([
+               'parent_id'=>'0',
                'body'=>'created_body',
+               'url'=>'created_url',
                'caption'=>'caption_id'
             ]);
             $this->info('Created');
