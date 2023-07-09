@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Components\Layout;
-use App\Http\Components\Models\MenuWidget;
+use App\Http\Components\Layout\Models\MenuWidget;
 
 class Layout
 {

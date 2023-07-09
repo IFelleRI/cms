@@ -11,16 +11,28 @@
     border: 1px solid #cecece;
     padding: 10px 0;
     text-align: center;
+    background: bisque;
 }
 .wrapper {
     display: flex;
 }
 .wrapper-menu {
     border: 1px solid #cecece;
-    height: 100vh;
-    width: 230px;
+    height: 100%;
+    width: 260px;
     padding: 20px 40px;
 }
 .wrapper-sections{
     padding: 20px 40px;
+    width: 100%;
+}
+.wrapper-menu ul{
+    list-style: none;
+}
+.wrapper-menu ul li{
+    margin-bottom: 10px;
+}
+.wrapper-menu ul li a{
+    text-decoration: none;
+    font-size: 20px;
 }

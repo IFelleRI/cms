@@ -1,13 +1,20 @@
 <div class="main">
-    <div class="logo">
-        logo
-    </div>
+    <header>
+        <div class="logo">
+            HEADER
+        </div>
+    </header>
     <div class="wrapper">
         <div class="wrapper-menu">
             @widget('menu')
         </div>
         <div class="wrapper-sections">
-            sections
+            SECTIONS
         </div>
     </div>
+    <footer>
+        <div class="logo">
+            FOOTER
+        </div>
+    </footer>
 </div>

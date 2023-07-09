@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Components\Models;
+namespace App\Http\Components\Layout\Models;
 
 class Link
 {

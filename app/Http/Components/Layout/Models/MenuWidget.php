@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Http\Components\Models;
-use App\Http\Components\Models\Link;
+namespace App\Http\Components\Layout\Models;
 
 class MenuWidget{
     protected mixed $menu;
