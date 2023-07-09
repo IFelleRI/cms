@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('model_name');
             $table->integer('model_id');
             $table->string('type');
-            $table->integer('sort_index');
+            $table->integer('sort_index')->nullable();;
             $table->timestamps();
         });
     }

@@ -14,9 +14,24 @@ class Section extends Model
         'url',
         'body'
     ];
-    public function publication()
+
+    public function getParent()
+    {
+        return $this->hasMany(Section::class, 'id', 'parent_id');
+    }
+
+    public function getChildren()
+    {
+        return $this->hasMany(Section::class, 'parent_id');
+    }
+
+    public function getPublication()
     {
         return $this->hasMany(Publication::class);
     }
 
+    public function getFiles()
+    {
+        return $this->hasMany(File::class);
+    }
 }

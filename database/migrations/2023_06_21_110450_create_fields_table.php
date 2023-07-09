@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('fields', function (Blueprint $table) {
             $table->id();
             $table->integer('parent_id');
-            $table->string('name');
-            $table->string('label_value');
-            $table->text('body_value');
-            $table->dateTime('date_value');
-            $table->integer('sort_index');
+            $table->string('name')->nullable();;
+            $table->string('label_value')->nullable();;
+            $table->text('body_value')->nullable();;
+            $table->dateTime('date_value')->nullable();;
+            $table->integer('sort_index')->nullable();;
             $table->timestamps();
         });
     }

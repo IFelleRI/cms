@@ -16,8 +16,13 @@ class Publication extends Model
         'annotation',
         'body'
     ];
-    public function section()
+    public function getSection()
     {
         return $this->belongsTo(Section::class);
+    }
+
+    public function getFiles()
+    {
+        return $this->belongsTo(File::class);
     }
 }

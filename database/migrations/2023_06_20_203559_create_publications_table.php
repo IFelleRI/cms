@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('section_id');
             $table->dateTime('date');
-            $table->string('caption');
-            $table->text('annotation');
-            $table->text('body');
+            $table->string('caption')->nullable();;
+            $table->text('annotation')->nullable();;
+            $table->text('body')->nullable();;
             $table->timestamps();
         });
     }
