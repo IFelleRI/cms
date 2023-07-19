@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->BigInteger('parent_id')->default('0')->index()->unsigned();
-            //$table->foreign('parent_id')->references('id')->on('sections');
+            $table->BigInteger('parent_id')->nullable()->index()->unsigned();
+            $table->foreign('parent_id')->references('id')->on('sections')->onUpdate('cascade');
             $table->string('caption')->nullable();;
             $table->string('url');
             $table->text('body')->nullable();;
