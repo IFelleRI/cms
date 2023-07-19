@@ -4,9 +4,13 @@ namespace App\Http\Components\Layout\Models;
 
 class Link
 {
+    public string $name;
+    public string $link;
 
-    public function setItemMenu($name,$link): array
-    {
-        return array('name'=>$name,'link'=>$link);
-    }
+   public function __construct($name,$link)
+   {
+        $this->link = $link;
+        $this->name = $name;
+   }
+
 }

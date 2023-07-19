@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Section;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
+
+
 class Test extends Command
 {
     /**
@@ -25,33 +27,29 @@ class Test extends Command
      */
     public function handle()
     {
-        if($this->argument('t') == 'delete'){
-            $idV = $this->ask('delete ID table');
-            DB::table('sections')
-              ->where('id','=',$idV)
-              ->delete();
-            $this->info('Deleted');
+        $r = new Section();
+        if($this->argument('t') == 'c'){
+            $r->parent_id = '2';
+            $r->body = 'test2';
+            $r->caption = 'test2';
+            $r->url = 'test2';
+            $r->save();
+            $this->info('Create success');
         }
-
-        if($this->argument('t') == 'update'){
-            $idV = $this->ask('update ID table');
-            $col = $this->ask('Name column');
-            $colVal = $this->ask('Column value');
-            DB::table('sections')
-              ->where('id','=',$idV)
-              ->update([$col=>$colVal]);
-            $this->info('Saved');
+        if($this->argument('t') == 'u'){
+            $u = Section::find(3);
+            $u->parent_id = '1';
+            $u->caption = 'update';
+            $u->save();
+            $this->info('Update success');
         }
-
-        if($this->argument('t') == 'create'){
-            DB::table('sections')->insert([
-               'parent_id'=>'0',
-               'body'=>'created_body',
-               'url'=>'created_url',
-               'caption'=>'caption_id'
-            ]);
-            $this->info('Created');
+        if($this->argument('t') == 'd'){
+            $d = Section::find(3);
+            $d->delete();
+            $this->info('Delete success');
         }
-
+        if($this->argument('t') == 'f'){
+            Section::find(1);
+        }
     }
 }

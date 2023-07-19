@@ -2,9 +2,10 @@
 
 namespace App\Widgets;
 
+use App\Http\Components\Section\Section;
 use Arrilot\Widgets\AbstractWidget;
-use App\Http\Components\Layout\Layout;
-class Menu extends AbstractWidget
+
+class SectionsList extends AbstractWidget
 {
     /**
      * The configuration array.
@@ -17,10 +18,10 @@ class Menu extends AbstractWidget
      * Treat this method as a controller action.
      * Return view() or other content to display.
      */
-    public function run(Layout $layout)
+    public function run(Section $section)
     {
-        return view('widgets.menu', [
-            'menu' => $layout->getMenu(),
+        return view('widgets.sections_list', [
+            'sections' => $section->getSections(),
         ]);
     }
 }

@@ -15,22 +15,22 @@ class Section extends Model
         'body'
     ];
 
-    public function getParent()
+    public function parent()
     {
-        return $this->hasMany(Section::class, 'id', 'parent_id');
+        return $this->hasOne(Section::class, 'id', 'parent_id');
     }
 
-    public function getChildren()
+    public function children()
     {
-        return $this->hasMany(Section::class, 'parent_id');
+        return $this->hasMany(Section::class, 'parent_id', 'id');
     }
 
-    public function getPublication()
+    public function publication()
     {
         return $this->hasMany(Publication::class);
     }
 
-    public function getFiles()
+    public function files()
     {
         return $this->hasMany(File::class);
     }

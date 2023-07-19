@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index.index');
 });
+
+Route::get('admin/section', function () {
+    return view('section.index');
+});

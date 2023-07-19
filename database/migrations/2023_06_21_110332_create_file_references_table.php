@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use App\Models\File;
 return new class extends Migration
 {
     /**
@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('file_references', function (Blueprint $table) {
             $table->id();
-            $table->integer('file_id');
+            $table->BigInteger('file_id')->index()->unsigned();
+            $table->foreign('file_id')->references('id')->on('files');
             $table->string('model_name');
             $table->integer('model_id');
             $table->string('type');
